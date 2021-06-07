@@ -474,6 +474,33 @@ MatcherAutomaton.cpp.s:
 	$(MAKE) -f CMakeFiles/Project_5.dir/build.make CMakeFiles/Project_5.dir/MatcherAutomaton.cpp.s
 .PHONY : MatcherAutomaton.cpp.s
 
+Node.o: Node.cpp.o
+
+.PHONY : Node.o
+
+# target to build an object file
+Node.cpp.o:
+	$(MAKE) -f CMakeFiles/Project_5.dir/build.make CMakeFiles/Project_5.dir/Node.cpp.o
+.PHONY : Node.cpp.o
+
+Node.i: Node.cpp.i
+
+.PHONY : Node.i
+
+# target to preprocess a source file
+Node.cpp.i:
+	$(MAKE) -f CMakeFiles/Project_5.dir/build.make CMakeFiles/Project_5.dir/Node.cpp.i
+.PHONY : Node.cpp.i
+
+Node.s: Node.cpp.s
+
+.PHONY : Node.s
+
+# target to generate assembly for a file
+Node.cpp.s:
+	$(MAKE) -f CMakeFiles/Project_5.dir/build.make CMakeFiles/Project_5.dir/Node.cpp.s
+.PHONY : Node.cpp.s
+
 Parameter.o: Parameter.cpp.o
 
 .PHONY : Parameter.o
@@ -825,33 +852,6 @@ UndefinedStringAutomaton.cpp.s:
 	$(MAKE) -f CMakeFiles/Project_5.dir/build.make CMakeFiles/Project_5.dir/UndefinedStringAutomaton.cpp.s
 .PHONY : UndefinedStringAutomaton.cpp.s
 
-Vertex.o: Vertex.cpp.o
-
-.PHONY : Vertex.o
-
-# target to build an object file
-Vertex.cpp.o:
-	$(MAKE) -f CMakeFiles/Project_5.dir/build.make CMakeFiles/Project_5.dir/Vertex.cpp.o
-.PHONY : Vertex.cpp.o
-
-Vertex.i: Vertex.cpp.i
-
-.PHONY : Vertex.i
-
-# target to preprocess a source file
-Vertex.cpp.i:
-	$(MAKE) -f CMakeFiles/Project_5.dir/build.make CMakeFiles/Project_5.dir/Vertex.cpp.i
-.PHONY : Vertex.cpp.i
-
-Vertex.s: Vertex.cpp.s
-
-.PHONY : Vertex.s
-
-# target to generate assembly for a file
-Vertex.cpp.s:
-	$(MAKE) -f CMakeFiles/Project_5.dir/build.make CMakeFiles/Project_5.dir/Vertex.cpp.s
-.PHONY : Vertex.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -927,6 +927,9 @@ help:
 	@echo "... MatcherAutomaton.o"
 	@echo "... MatcherAutomaton.i"
 	@echo "... MatcherAutomaton.s"
+	@echo "... Node.o"
+	@echo "... Node.i"
+	@echo "... Node.s"
 	@echo "... Parameter.o"
 	@echo "... Parameter.i"
 	@echo "... Parameter.s"
@@ -966,9 +969,6 @@ help:
 	@echo "... UndefinedStringAutomaton.o"
 	@echo "... UndefinedStringAutomaton.i"
 	@echo "... UndefinedStringAutomaton.s"
-	@echo "... Vertex.o"
-	@echo "... Vertex.i"
-	@echo "... Vertex.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

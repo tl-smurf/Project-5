@@ -57,5 +57,7 @@ add_executable(Project_5
         Parameter.cpp
         Graph.cpp
         Graph.h
+        Node.cpp
+        Node.h
         main.cpp
-        Node.cpp Node.h)
+        )

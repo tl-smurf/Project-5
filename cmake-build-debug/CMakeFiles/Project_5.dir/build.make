@@ -395,18 +395,18 @@ CMakeFiles/Project_5.dir/Graph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_5.dir/Graph.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/guest/t/tmurph/Projects/Project-5/Graph.cpp -o CMakeFiles/Project_5.dir/Graph.cpp.s
 
-CMakeFiles/Project_5.dir/Vertex.cpp.o: CMakeFiles/Project_5.dir/flags.make
-CMakeFiles/Project_5.dir/Vertex.cpp.o: ../Vertex.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/guest/t/tmurph/Projects/Project-5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/Project_5.dir/Vertex.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_5.dir/Vertex.cpp.o -c /users/guest/t/tmurph/Projects/Project-5/Vertex.cpp
+CMakeFiles/Project_5.dir/Node.cpp.o: CMakeFiles/Project_5.dir/flags.make
+CMakeFiles/Project_5.dir/Node.cpp.o: ../Node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/users/guest/t/tmurph/Projects/Project-5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/Project_5.dir/Node.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_5.dir/Node.cpp.o -c /users/guest/t/tmurph/Projects/Project-5/Node.cpp
 
-CMakeFiles/Project_5.dir/Vertex.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_5.dir/Vertex.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/guest/t/tmurph/Projects/Project-5/Vertex.cpp > CMakeFiles/Project_5.dir/Vertex.cpp.i
+CMakeFiles/Project_5.dir/Node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_5.dir/Node.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /users/guest/t/tmurph/Projects/Project-5/Node.cpp > CMakeFiles/Project_5.dir/Node.cpp.i
 
-CMakeFiles/Project_5.dir/Vertex.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_5.dir/Vertex.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/guest/t/tmurph/Projects/Project-5/Vertex.cpp -o CMakeFiles/Project_5.dir/Vertex.cpp.s
+CMakeFiles/Project_5.dir/Node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_5.dir/Node.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /users/guest/t/tmurph/Projects/Project-5/Node.cpp -o CMakeFiles/Project_5.dir/Node.cpp.s
 
 CMakeFiles/Project_5.dir/main.cpp.o: CMakeFiles/Project_5.dir/flags.make
 CMakeFiles/Project_5.dir/main.cpp.o: ../main.cpp
@@ -449,7 +449,7 @@ Project_5_OBJECTS = \
 "CMakeFiles/Project_5.dir/Tuple.cpp.o" \
 "CMakeFiles/Project_5.dir/Parameter.cpp.o" \
 "CMakeFiles/Project_5.dir/Graph.cpp.o" \
-"CMakeFiles/Project_5.dir/Vertex.cpp.o" \
+"CMakeFiles/Project_5.dir/Node.cpp.o" \
 "CMakeFiles/Project_5.dir/main.cpp.o"
 
 # External object files for target Project_5
@@ -481,7 +481,7 @@ Project_5: CMakeFiles/Project_5.dir/SchemesAutomaton.cpp.o
 Project_5: CMakeFiles/Project_5.dir/Tuple.cpp.o
 Project_5: CMakeFiles/Project_5.dir/Parameter.cpp.o
 Project_5: CMakeFiles/Project_5.dir/Graph.cpp.o
-Project_5: CMakeFiles/Project_5.dir/Vertex.cpp.o
+Project_5: CMakeFiles/Project_5.dir/Node.cpp.o
 Project_5: CMakeFiles/Project_5.dir/main.cpp.o
 Project_5: CMakeFiles/Project_5.dir/build.make
 Project_5: CMakeFiles/Project_5.dir/link.txt

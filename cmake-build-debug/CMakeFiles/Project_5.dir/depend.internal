@@ -38,6 +38,10 @@ CMakeFiles/Project_5.dir/FactsAutomaton.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/FactsAutomaton.cpp
  /users/guest/t/tmurph/Projects/Project-5/FactsAutomaton.h
  /users/guest/t/tmurph/Projects/Project-5/Token.h
+CMakeFiles/Project_5.dir/Graph.cpp.o
+ /users/guest/t/tmurph/Projects/Project-5/Graph.cpp
+ /users/guest/t/tmurph/Projects/Project-5/Graph.h
+ /users/guest/t/tmurph/Projects/Project-5/Node.h
 CMakeFiles/Project_5.dir/Header.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/Header.cpp
  /users/guest/t/tmurph/Projects/Project-5/Header.h
@@ -49,9 +53,11 @@ CMakeFiles/Project_5.dir/IDAutomaton.cpp.o
 CMakeFiles/Project_5.dir/Interpreter.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/Database.h
  /users/guest/t/tmurph/Projects/Project-5/DatalogProgram.h
+ /users/guest/t/tmurph/Projects/Project-5/Graph.h
  /users/guest/t/tmurph/Projects/Project-5/Header.h
  /users/guest/t/tmurph/Projects/Project-5/Interpreter.cpp
  /users/guest/t/tmurph/Projects/Project-5/Interpreter.h
+ /users/guest/t/tmurph/Projects/Project-5/Node.h
  /users/guest/t/tmurph/Projects/Project-5/Parameter.h
  /users/guest/t/tmurph/Projects/Project-5/Parser.h
  /users/guest/t/tmurph/Projects/Project-5/Predicate.h
@@ -143,6 +149,9 @@ CMakeFiles/Project_5.dir/UndefinedStringAutomaton.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/Token.h
  /users/guest/t/tmurph/Projects/Project-5/UndefinedStringAutomaton.cpp
  /users/guest/t/tmurph/Projects/Project-5/UndefinedStringAutomaton.h
+CMakeFiles/Project_5.dir/Vertex.cpp.o
+ /users/guest/t/tmurph/Projects/Project-5/Vertex.cpp
+ /users/guest/t/tmurph/Projects/Project-5/Vertex.h
 CMakeFiles/Project_5.dir/main.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/Automaton.h
  /users/guest/t/tmurph/Projects/Project-5/Database.h
@@ -150,6 +159,7 @@ CMakeFiles/Project_5.dir/main.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/Header.h
  /users/guest/t/tmurph/Projects/Project-5/Interpreter.h
  /users/guest/t/tmurph/Projects/Project-5/Lexer.h
+ /users/guest/t/tmurph/Projects/Project-5/Node.h
  /users/guest/t/tmurph/Projects/Project-5/Parameter.h
  /users/guest/t/tmurph/Projects/Project-5/Parser.h
  /users/guest/t/tmurph/Projects/Project-5/Predicate.h

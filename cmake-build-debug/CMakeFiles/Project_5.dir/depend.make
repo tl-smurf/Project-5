@@ -38,6 +38,10 @@ CMakeFiles/Project_5.dir/FactsAutomaton.cpp.o: ../FactsAutomaton.cpp
 CMakeFiles/Project_5.dir/FactsAutomaton.cpp.o: ../FactsAutomaton.h
 CMakeFiles/Project_5.dir/FactsAutomaton.cpp.o: ../Token.h
 
+CMakeFiles/Project_5.dir/Graph.cpp.o: ../Graph.cpp
+CMakeFiles/Project_5.dir/Graph.cpp.o: ../Graph.h
+CMakeFiles/Project_5.dir/Graph.cpp.o: ../Node.h
+
 CMakeFiles/Project_5.dir/Header.cpp.o: ../Header.cpp
 CMakeFiles/Project_5.dir/Header.cpp.o: ../Header.h
 
@@ -48,9 +52,11 @@ CMakeFiles/Project_5.dir/IDAutomaton.cpp.o: ../Token.h
 
 CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../Database.h
 CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../DatalogProgram.h
+CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../Graph.h
 CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../Header.h
 CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../Interpreter.cpp
 CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../Interpreter.h
+CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../Node.h
 CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../Parameter.h
 CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../Parser.h
 CMakeFiles/Project_5.dir/Interpreter.cpp.o: ../Predicate.h
@@ -143,12 +149,16 @@ CMakeFiles/Project_5.dir/UndefinedStringAutomaton.cpp.o: ../Token.h
 CMakeFiles/Project_5.dir/UndefinedStringAutomaton.cpp.o: ../UndefinedStringAutomaton.cpp
 CMakeFiles/Project_5.dir/UndefinedStringAutomaton.cpp.o: ../UndefinedStringAutomaton.h
 
+CMakeFiles/Project_5.dir/Vertex.cpp.o: ../Vertex.cpp
+CMakeFiles/Project_5.dir/Vertex.cpp.o: ../Vertex.h
+
 CMakeFiles/Project_5.dir/main.cpp.o: ../Automaton.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Database.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../DatalogProgram.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Header.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Interpreter.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Lexer.h
+CMakeFiles/Project_5.dir/main.cpp.o: ../Node.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Parameter.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Parser.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Predicate.h

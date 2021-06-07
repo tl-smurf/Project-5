@@ -163,6 +163,12 @@
 		<Unit filename="/users/guest/t/tmurph/Projects/Project-5/MatcherAutomaton.h">
 			<Option target="Project_5"/>
 		</Unit>
+		<Unit filename="/users/guest/t/tmurph/Projects/Project-5/Node.cpp">
+			<Option target="Project_5"/>
+		</Unit>
+		<Unit filename="/users/guest/t/tmurph/Projects/Project-5/Node.h">
+			<Option target="Project_5"/>
+		</Unit>
 		<Unit filename="/users/guest/t/tmurph/Projects/Project-5/Parameter.cpp">
 			<Option target="Project_5"/>
 		</Unit>
@@ -239,12 +245,6 @@
 			<Option target="Project_5"/>
 		</Unit>
 		<Unit filename="/users/guest/t/tmurph/Projects/Project-5/UndefinedStringAutomaton.h">
-			<Option target="Project_5"/>
-		</Unit>
-		<Unit filename="/users/guest/t/tmurph/Projects/Project-5/Vertex.cpp">
-			<Option target="Project_5"/>
-		</Unit>
-		<Unit filename="/users/guest/t/tmurph/Projects/Project-5/Vertex.h">
 			<Option target="Project_5"/>
 		</Unit>
 		<Unit filename="/users/guest/t/tmurph/Projects/Project-5/main.cpp">
