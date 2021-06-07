@@ -4,14 +4,15 @@
 #include <sstream>
 #include "Lexer.h"
 #include "Interpreter.h"
+#include "Node.h"
 
 
 
 using namespace std;
 
 int main(int argc, char** argv) {
-
-    Interpreter* interprIt = new Interpreter();
+    //Final for Lab 5
+    /*Interpreter* interprIt = new Interpreter();
     Lexer* lexerIt = new Lexer();
     ifstream inStream(argv[1]);
     stringstream strStream;
@@ -19,5 +20,16 @@ int main(int argc, char** argv) {
     string fileString = strStream.str();
     Parser ParseIt(lexerIt->GiveMeTokensOrGiveMeDeath(fileString));
     interprIt->Start(ParseIt);
-    return 0;
+    return 0;*/
+    std::vector<Node> Nodes;
+    for (unsigned int i = 0; i < 5; i++) {
+        Node newTempNode;
+        newTempNode.name = i;
+    }
+    for (unsigned int i = 0; i < Nodes.size(); i++) {
+        std::cout << Nodes.at(i).toString();
+    }
+
+    //Testing:
+
 };

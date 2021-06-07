@@ -1,0 +1,61 @@
+cmake_minimum_required(VERSION 3.10)
+project(Project_5)
+
+set(CMAKE_CXX_STANDARD 14)
+
+add_executable(Project_5
+        Header.h
+        QueriesAutomaton.h
+        CommentAutomaton.cpp
+        Interpreter.cpp
+        CommentBlockAutomaton.h
+        Tuple.h
+        Parameter.h
+        DatalogProgram.h
+        Token.cpp
+        Relation.h
+        Predicate.h
+        ColonDashAutomaton.cpp
+        UndefinedStringAutomaton.cpp
+        ColonDashAutomaton.h
+        CommentBlockAutomaton.cpp
+        Rule.h
+        Automaton.h
+        RulesAutomaton.h
+        Parser.h
+        DatalogProgram.cpp
+        Database.cpp
+        FactsAutomaton.cpp
+        Lexer.h
+        StringAutomaton.h
+        StringAutomaton.cpp
+        MatcherAutomaton.cpp
+        Relation.cpp
+        UndefinedBlockCommentAutomaton.h
+        IDAutomaton.h
+        UndefinedStringAutomaton.h
+        RulesAutomaton.cpp
+        ColonAutomaton.h
+        Token.h
+        CommentAutomaton.h
+        Interpreter.h
+        Parser.cpp
+        QueriesAutomaton.cpp
+        UndefinedBlockCommentAutomaton.cpp
+        SchemesAutomaton.h
+        MatcherAutomaton.h
+        Rule.cpp
+        Lexer.cpp
+        Header.cpp
+        Database.h
+        Predicate.cpp
+        ColonAutomaton.cpp
+        IDAutomaton.cpp
+        FactsAutomaton.h
+        SchemesAutomaton.cpp
+        Tuple.cpp
+        Parameter.cpp
+        Graph.cpp
+        Graph.h
+        main.cpp
+        Node.cpp Node.h)
