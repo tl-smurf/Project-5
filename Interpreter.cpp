@@ -242,8 +242,8 @@ void Interpreter::processDemRules() {
             {
                 sizeBefore = db.getSize();
                 for(unsigned int j = 0; j < sccs.at(i).size(); j++) {
-                    Predicate headPred = rulesList[sccs.at(i)[0].name].getHeadlol();
-                    std::vector<Predicate> predList = rulesList[sccs.at(i)[0].name].getPredicateList();
+                    Predicate headPred = rulesList[sccs.at(i)[j].name].getHeadlol();
+                    std::vector<Predicate> predList = rulesList[sccs.at(i)[j].name].getPredicateList();
                     Relation afterPreds;
                     afterPreds = evaluatePredicate(predList[0]);
                     for(unsigned int k = 1; k < predList.size(); k++) {
@@ -259,7 +259,7 @@ void Interpreter::processDemRules() {
                     }
                     afterPreds = afterPreds.Project(intdexes);
                     afterPreds = afterPreds.Rename(db.relations[headPred.getName()].getHeader().attributes);
-                    std::cout << rulesList[sccs.at(i)[0].name].toString();
+                    std::cout << rulesList[sccs.at(i)[j].name].toString();
                     db.relations[headPred.getName()].Unionize(afterPreds); //tuples are printed here
                 }
                 sizeAfter = db.getSize();
