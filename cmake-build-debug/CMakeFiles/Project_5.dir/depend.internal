@@ -88,6 +88,9 @@ CMakeFiles/Project_5.dir/MatcherAutomaton.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/MatcherAutomaton.cpp
  /users/guest/t/tmurph/Projects/Project-5/MatcherAutomaton.h
  /users/guest/t/tmurph/Projects/Project-5/Token.h
+CMakeFiles/Project_5.dir/Node.cpp.o
+ /users/guest/t/tmurph/Projects/Project-5/Node.cpp
+ /users/guest/t/tmurph/Projects/Project-5/Node.h
 CMakeFiles/Project_5.dir/Parameter.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/Parameter.cpp
  /users/guest/t/tmurph/Projects/Project-5/Parameter.h
@@ -149,9 +152,6 @@ CMakeFiles/Project_5.dir/UndefinedStringAutomaton.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/Token.h
  /users/guest/t/tmurph/Projects/Project-5/UndefinedStringAutomaton.cpp
  /users/guest/t/tmurph/Projects/Project-5/UndefinedStringAutomaton.h
-CMakeFiles/Project_5.dir/Vertex.cpp.o
- /users/guest/t/tmurph/Projects/Project-5/Vertex.cpp
- /users/guest/t/tmurph/Projects/Project-5/Vertex.h
 CMakeFiles/Project_5.dir/main.cpp.o
  /users/guest/t/tmurph/Projects/Project-5/Automaton.h
  /users/guest/t/tmurph/Projects/Project-5/Database.h

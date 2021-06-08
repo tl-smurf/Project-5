@@ -33,7 +33,6 @@ void Interpreter::Start(Parser parserIn) {
 
     schemesList = parserIn.schemesList;
     factsList = parserIn.factsList;
-    domain = parserIn.domain;
     rulesList = parserIn.rulesList;
     queryList = parserIn.queryList;
     schemify();
@@ -116,9 +115,6 @@ Relation Interpreter::evaluatePredicate(Predicate P) {
                         myRelation = myRelation.Select(i,intsToSave.at(j)); //Select type 2
                         break;
                     }
-                //Check to see if variable has been seen before
-                //if yes: do a select type 2
-                //if no: mark it to keep for the project and rename
                 }
                 if (!isItDuplicate) {
                     stringsToSave.push_back(P.getParameters().at(i).toString());
@@ -141,8 +137,24 @@ void Interpreter::toString() {
     db.toString();
 }
 
-
 void Interpreter::processDemRules() {
+    regGraph = makeGraph();
+    reverseGraph = revGraph();
+    std::vector<Node> posty = reverseGraph.getMaloneOrder();
+
+    std::cout << "Dependency Graph\n" + regGraph.toString();
+
+    while(!posty.empty()) {
+        int size = posty.size() - 1;
+        if (!regGraph.nodes[posty[size].name].hasBeenVisited) {
+            std::vector<Node> tempNode = regGraph.depthDoesntMatter(regGraph.nodes[posty[size].name]);
+            sort(tempNode.begin(), tempNode.end());
+            tempNode.erase(unique(tempNode.begin(), tempNode.end()), tempNode.end());
+            sccs.push_back(tempNode);
+        }
+        posty.pop_back();
+    }
+
     int sizeBefore = 0;
     int sizeAfter = 0;
     int numPasses = 0;
@@ -197,86 +209,6 @@ void Interpreter::processDemRules() {
     } while(sizeBefore != sizeAfter);
 
     std::cout << "\nSchemes populated after " << numPasses <<  " passes through the Rules.\n\n";
-}
-
-Relation Interpreter::selectsFromRules(Predicate query) {
-    Relation tempRelation = db.relations[query.getName()];
-    for (unsigned int i = 0; i < query.getParameters().size(); i++) {
-        Parameter tempParam = query.getParameters()[i];
-        if (tempParam.getType() == "STRING") {
-            tempRelation = tempRelation.Select(i, tempRelation.getName());
-        }
-    }
-    for (unsigned int i = 0; i < query.getParameters().size(); i++) {
-        for (unsigned int j = i + 1; j < query.getParameters().size(); j++) {
-            if (query.getParameters()[i].toString() == query.getParameters()[j].toString()) {
-                tempRelation = tempRelation.Select(i,j);
-                break;
-            }
-        }
-    }
-    return tempRelation;
-}
-
-Relation Interpreter::projectFromRules(Predicate query, Relation r) {
-    std::vector<int> projectIndices;
-    std::vector<std::string> renameNames;
-    Relation tempRelation;
-    for (unsigned int i = 0; i < query.getParameters().size(); i++) {
-        Parameter tempParam = query.getParameters()[i];
-        if (tempParam.getType() == "ID") {
-            bool alreadyThere = false;
-            for (unsigned int j = 0; j < projectIndices.size(); j++) {
-                if (tempParam.toString() == renameNames[j]) {
-                    alreadyThere = true;
-                }
-            }
-            if (!alreadyThere) {
-                projectIndices.push_back(i);
-                renameNames.push_back(tempParam.toString());
-            }
-        }
-    }
-    tempRelation = r.Project(projectIndices);
-    renameify(query.getName(), renameNames, tempRelation);
-    return tempRelation;
-}
-
-Relation Interpreter::projectJoinify(Predicate query, Relation r) {
-    std::vector<int> projectIndices;
-    std::vector<std::string> renameNames;
-    Relation tempRelation;
-    for (unsigned int i = 0; i < query.getParameters().size(); i++) {
-        Parameter tempParam = query.getParameters()[i];
-        if (tempParam.getType() == "ID") {
-            bool alreadyThere = false;
-            for (unsigned int j = 0; j < projectIndices.size(); j++) {
-                if (tempParam.toString() == renameNames[j]) {
-                    alreadyThere = true;
-                }
-            }
-            if (!alreadyThere) {
-                for (unsigned int k = 0; k < r.getHeader().attributes.size(); k++) {
-                    if (tempParam.toString() == r.getHeader().attributes[k]) {
-                        projectIndices.push_back(k);
-                        renameNames.push_back(tempParam.toString());
-                        break;
-                    }
-                }
-
-            }
-        }
-    }
-    tempRelation = r.Project(projectIndices);
-    renameify(query.getName(), renameNames, tempRelation);
-    return tempRelation;
-}
-
-void Interpreter::renameify(std::string name, std::vector<std::string> parameters, Relation &renameRel) {
-    renameRel.setName(name);
-    Header tempHead;
-    tempHead.setAttributes(parameters);
-    renameRel.setHeader(tempHead);
 }
 
 Header Interpreter::combineHeaders(Header one, Header two) {
@@ -335,4 +267,49 @@ bool Interpreter::isJoinable(Tuple one, Tuple two, std::vector<std::string> para
         }
     }
     return true;
+}
+
+Graph Interpreter::makeGraph() {
+    Graph graphyGraph;
+
+    for (unsigned int i = 0; i < rulesList.size(); i++) {
+        Rule tempRule = rulesList.at(i);
+
+        Node tempNode;
+        tempNode.name = i;
+        for (unsigned int j = 0; j < tempRule.getPredicateList().size(); j++) {
+            Predicate currPred = tempRule.getPredicateList().at(j);
+
+            for (unsigned int k = 0; k < rulesList.size(); k++) {
+                if (currPred.getName() == rulesList[k].getHeadlol().getName()) {
+                    tempNode.nodesNextDoor.push_back(k);
+                }
+            }
+        }
+        sort(tempNode.nodesNextDoor.begin(), tempNode.nodesNextDoor.end());
+        tempNode.nodesNextDoor.erase(unique(tempNode.nodesNextDoor.begin(), tempNode.nodesNextDoor.end()), tempNode.nodesNextDoor.end());
+        graphyGraph.nodes.insert(std::pair<int, Node>(i, tempNode));
+    }
+    return graphyGraph;
+}
+
+Graph Interpreter::revGraph() {
+    Graph graphyGraph;
+
+    for (unsigned int i = 0; i < rulesList.size(); i++) {
+        Rule tempRule = rulesList.at(i);
+        Node tempNode;
+        tempNode.name = i;
+        for (unsigned int j = 0; j < rulesList.size(); j++) {
+            for (unsigned int k = 0; k < rulesList.at(j).getPredicateList().size(); k++) {
+                if (rulesList[j].getPredicateList().at(k).getName() == tempRule.getHeadlol().getName()) {
+                    tempNode.nodesNextDoor.push_back(j);
+                }
+            }
+        }
+        sort(tempNode.nodesNextDoor.begin(), tempNode.nodesNextDoor.end());
+        tempNode.nodesNextDoor.erase(unique(tempNode.nodesNextDoor.begin(), tempNode.nodesNextDoor.end()), tempNode.nodesNextDoor.end());
+        graphyGraph.nodes.insert(std::pair<int, Node>(i, tempNode));
+    }
+    return graphyGraph;
 }

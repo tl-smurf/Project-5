@@ -20,7 +20,7 @@ public:
     //Functions
     std::string toString();
     std::vector<Node> getMaloneOrder();
-    std::vector<Node> cantSeeForest4TheTrees(Node& nodeIn);
+    std::vector<Node> depthDoesntMatter(Node& nodeIn);
 
 };
 
