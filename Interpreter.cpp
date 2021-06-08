@@ -208,8 +208,14 @@ void Interpreter::processDemRules() {
         std::string fixerupper;
         fixerupper = "R" + std::to_string(sccs[i][0].name);
         for (unsigned int q = 0; q < sccs[i][0].nodesNextDoor.size(); q++) {
-            fixerupper +=  ",R";
-            fixerupper += std::to_string(sccs[i][0].nodesNextDoor.at(q));
+            //Something that checks if the rule has already been run, and if so, only prints new rules.
+            if (i > sccs[i][0].nodesNextDoor.at(q)) {
+                //The rule has been seen.
+            }
+            else {
+                fixerupper +=  ",R";
+                fixerupper += std::to_string(sccs[i][0].nodesNextDoor.at(q));
+            }
         }
         std::cout << fixerupper << "\n";
         int sizeBefore = 0;
