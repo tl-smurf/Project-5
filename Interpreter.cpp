@@ -201,7 +201,7 @@ void Interpreter::processDemRules() {
     }
 
     std::cout << "\nRule Evaluation\n";
-    //doesn't work when it depends on another rule??
+    //doesn't work when it depends on another rule????
     for (unsigned int i = 0; i < sccs.size(); i++) {
         int numPasses = 1;
         std::cout << "SCC: ";
