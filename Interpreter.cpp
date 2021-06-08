@@ -207,6 +207,7 @@ void Interpreter::processDemRules() {
         std::cout << "SCC: R" << sccs[i][0].name << "\n";
         int sizeBefore = 0;
         int sizeAfter = 0;
+        //Add something like: && sccs[i][0].nodesNextDoor.empty()
         if(sccs[i].size() == 1 && !sccs[i][0].isCyclic()) {
             Predicate headPred = rulesList[sccs.at(i)[0].name].getHeadlol();
             std::vector<Predicate> predList = rulesList[sccs.at(i)[0].name].getPredicateList();
