@@ -204,23 +204,34 @@ void Interpreter::processDemRules() {
     //doesn't work when it depends on another rule????
     for (unsigned int i = 0; i < sccs.size(); i++) {
         int numPasses = 1;
+        std::vector<int> YaOutputeado;
         std::cout << "SCC: ";
         std::string fixerupper;
         fixerupper = "R" + std::to_string(sccs[i][0].name);
-        for (unsigned int q = 0; q < sccs[i][0].nodesNextDoor.size(); q++) {
+        YaOutputeado.push_back(sccs[i][0].name);
+        for (unsigned int q = 0; q < sccs[i].size(); q++) {
             //Something that checks if the rule has already been run, and if so, only prints new rules.
-            if (i > sccs[i][0].nodesNextDoor.at(q)) {
+            if (i >= unsigned(sccs[i][q].name)) {
                 //The rule has been seen.
             }
             else {
-                fixerupper +=  ",R";
-                fixerupper += std::to_string(sccs[i][0].nodesNextDoor.at(q));
+                bool alreadyDone = false;
+                for (unsigned int r = 0; r < YaOutputeado.size(); r++) {
+                    if (YaOutputeado.at(r) == sccs[i][q].name) {
+                        alreadyDone = true;
+                        break;
+                    }
+                }
+                if (!alreadyDone) {
+                    fixerupper +=  ",R";
+                    fixerupper += std::to_string(sccs[i][q].name);
+                    YaOutputeado.push_back(sccs[i][q].name);
+                }
             }
         }
         std::cout << fixerupper << "\n";
         int sizeBefore = 0;
         int sizeAfter = 0;
-        //Add something like: && !sccs[i][0].isCyclic() && sccs[i][0].nodesNextDoor.empty()
         if(sccs[i].size() == 1 && !sccs[i][0].isCyclic()) {
             Predicate headPred = rulesList[sccs.at(i)[0].name].getHeadlol();
             std::vector<Predicate> predList = rulesList[sccs.at(i)[0].name].getPredicateList();
@@ -248,6 +259,8 @@ void Interpreter::processDemRules() {
             {
                 sizeBefore = db.getSize();
                 for(unsigned int j = 0; j < sccs.at(i).size(); j++) {
+                    std::vector<int> toBeOutputted;
+                    toBeOutputted.push_back(sccs.at(i)[j].name);
                     Predicate headPred = rulesList[sccs.at(i)[j].name].getHeadlol();
                     std::vector<Predicate> predList = rulesList[sccs.at(i)[j].name].getPredicateList();
                     Relation afterPreds;
@@ -265,6 +278,15 @@ void Interpreter::processDemRules() {
                     }
                     afterPreds = afterPreds.Project(intdexes);
                     afterPreds = afterPreds.Rename(db.relations[headPred.getName()].getHeader().attributes);
+                    /*
+                    std::string fixeruupertwo;
+                    fixeruupertwo = "R" + std::to_string(sccs[i][0].name);
+                    std::sort(toBeOutputted.begin(), toBeOutputted.end());
+                    for (unsigned int z = 0; z < toBeOutputted.size(); z++) {
+                        fixeruupertwo += ",R" + std::to_string(toBeOutputted.at(z));
+                    }
+                    std::cout << fixeruupertwo << "\n";
+                    */
                     std::cout << rulesList[sccs.at(i)[j].name].toString();
                     db.relations[headPred.getName()].Unionize(afterPreds); //tuples are printed here
                 }
