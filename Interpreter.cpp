@@ -201,13 +201,20 @@ void Interpreter::processDemRules() {
     }
 
     std::cout << "\nRule Evaluation\n";
-
+    //doesn't work when it depends on another rule??
     for (unsigned int i = 0; i < sccs.size(); i++) {
         int numPasses = 1;
-        std::cout << "SCC: R" << sccs[i][0].name << "\n";
+        std::cout << "SCC: ";
+        std::string fixerupper;
+        fixerupper = "R" + std::to_string(sccs[i][0].name);
+        for (unsigned int q = 0; q < sccs[i][0].nodesNextDoor.size(); q++) {
+            fixerupper +=  ",R";
+            fixerupper += std::to_string(sccs[i][0].nodesNextDoor.at(q));
+        }
+        std::cout << fixerupper << "\n";
         int sizeBefore = 0;
         int sizeAfter = 0;
-        //Add something like: && sccs[i][0].nodesNextDoor.empty()
+        //Add something like: && !sccs[i][0].isCyclic() && sccs[i][0].nodesNextDoor.empty()
         if(sccs[i].size() == 1 && !sccs[i][0].isCyclic()) {
             Predicate headPred = rulesList[sccs.at(i)[0].name].getHeadlol();
             std::vector<Predicate> predList = rulesList[sccs.at(i)[0].name].getPredicateList();
@@ -228,9 +235,8 @@ void Interpreter::processDemRules() {
             afterPreds = afterPreds.Rename(db.relations[headPred.getName()].getHeader().attributes);
             std::cout << rulesList[sccs.at(i)[0].name].toString();
             db.relations[headPred.getName()].Unionize(afterPreds);
-            std::cout << "1 passes: R" << sccs[i][0].name << "\n";
+            std::cout << "1 passes: " << fixerupper << "\n";
         }
-        //Some kind of if then. If it is a non-dependent rule, then it only runs once.
         else {
             do
             {
@@ -240,8 +246,8 @@ void Interpreter::processDemRules() {
                     std::vector<Predicate> predList = rulesList[sccs.at(i)[0].name].getPredicateList();
                     Relation afterPreds;
                     afterPreds = evaluatePredicate(predList[0]);
-                    for(unsigned int j = 1; j < predList.size(); j++) {
-                        afterPreds = Join(afterPreds, evaluatePredicate(predList[j]));
+                    for(unsigned int k = 1; k < predList.size(); k++) {
+                        afterPreds = Join(afterPreds, evaluatePredicate(predList[k]));
                     }
                     std::vector<int> intdexes;
                     for (unsigned int i = 0; i < headPred.getParameters().size(); i++) {
@@ -260,7 +266,7 @@ void Interpreter::processDemRules() {
                 numPasses++;
             } while(sizeBefore != sizeAfter);
             numPasses--;
-            std::cout << std::to_string(numPasses) << " passes: R" << sccs[i][0].name;
+            std::cout << std::to_string(numPasses) << " passes: " << fixerupper;
             /*for (unsigned int j = 0; j < sccs[i].size(); j++) {
                 std::cout << ",R" << sccs[i][j].name;
             }*/
