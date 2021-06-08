@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/users/guest/t/tmurph/Projects/Project-5/Automaton.h
-Token.h
-/users/guest/t/tmurph/Projects/Project-5/Token.h
-
 /users/guest/t/tmurph/Projects/Project-5/Database.h
 Relation.h
 /users/guest/t/tmurph/Projects/Project-5/Relation.h
@@ -30,10 +26,24 @@ vector
 set
 -
 
+/users/guest/t/tmurph/Projects/Project-5/Graph.h
+Node.h
+/users/guest/t/tmurph/Projects/Project-5/Node.h
+map
+-
+
 /users/guest/t/tmurph/Projects/Project-5/Header.h
 vector
 -
 string
+-
+
+/users/guest/t/tmurph/Projects/Project-5/Interpreter.cpp
+Interpreter.h
+/users/guest/t/tmurph/Projects/Project-5/Interpreter.h
+Graph.h
+/users/guest/t/tmurph/Projects/Project-5/Graph.h
+algorithm
 -
 
 /users/guest/t/tmurph/Projects/Project-5/Interpreter.h
@@ -45,14 +55,8 @@ iostream
 -
 Database.h
 /users/guest/t/tmurph/Projects/Project-5/Database.h
-
-/users/guest/t/tmurph/Projects/Project-5/Lexer.h
-vector
--
-Automaton.h
-/users/guest/t/tmurph/Projects/Project-5/Automaton.h
-Token.h
-/users/guest/t/tmurph/Projects/Project-5/Token.h
+Graph.h
+/users/guest/t/tmurph/Projects/Project-5/Graph.h
 
 /users/guest/t/tmurph/Projects/Project-5/Node.h
 vector
@@ -117,20 +121,4 @@ vector
 -
 string
 -
-
-/users/guest/t/tmurph/Projects/Project-5/main.cpp
-Parser.h
-/users/guest/t/tmurph/Projects/Project-5/Parser.h
-iostream
--
-fstream
--
-sstream
--
-Lexer.h
-/users/guest/t/tmurph/Projects/Project-5/Lexer.h
-Interpreter.h
-/users/guest/t/tmurph/Projects/Project-5/Interpreter.h
-Node.h
-/users/guest/t/tmurph/Projects/Project-5/Node.h
 

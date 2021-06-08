@@ -155,6 +155,7 @@ CMakeFiles/Project_5.dir/UndefinedStringAutomaton.cpp.o: ../UndefinedStringAutom
 CMakeFiles/Project_5.dir/main.cpp.o: ../Automaton.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Database.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../DatalogProgram.h
+CMakeFiles/Project_5.dir/main.cpp.o: ../Graph.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Header.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Interpreter.h
 CMakeFiles/Project_5.dir/main.cpp.o: ../Lexer.h
